@@ -3,7 +3,7 @@ import numpy as np
 import joblib
 
 # ---------------------------
-# PAGE CONFIG
+# PAGE CONFIG (MUST BE FIRST)
 # ---------------------------
 st.set_page_config(
     page_title="House Price Predictor",
@@ -43,14 +43,13 @@ with col2:
 st.divider()
 
 # ---------------------------
-# PREDICTION BUTTON
+# PREDICTION
 # ---------------------------
 if st.button("💰 Predict Price"):
     input_data = np.array([[area, bedrooms, bathrooms, stories, parking]])
     prediction = model.predict(input_data)
 
     st.success(f"🏡 Estimated House Price: ₹ {prediction[0]:,.2f}")
-
     st.balloons()
 
 # ---------------------------
